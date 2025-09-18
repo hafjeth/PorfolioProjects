@@ -81,8 +81,7 @@ body {
   justify-content: space-between;
   color: #ddd;
   margin-bottom: 10px;
-  width: 90%;
-  max-width: 800px;
+  width: 800px;
   margin: 0 auto;
 }
 
@@ -106,8 +105,7 @@ body {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 100%;
-  max-width: 600px;           
+  width: 600px;           
   height: 70px;        
   display: flex;
   align-items: center;   
@@ -134,8 +132,7 @@ body {
 
 .progress-bar {
   height: 10px;
-  width: 90%;
-  max-width: 1000px;
+  width: 1000px;
   background-color: #ebf0ff;
   border-radius: 5px;
   overflow: hidden;
@@ -151,7 +148,6 @@ body {
 }
 
 @media (max-width: 500px) {
-  /* when we hit 500px and below, implement the styles below */
 
   .screen {
     padding: 1rem;
