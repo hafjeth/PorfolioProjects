@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("images/sky.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    font-family: "Press Start 2P", cursive;
+    overflow: hidden;
+}
+
+.screen {
+    display: none;
+    padding: 2rem;
+    text-align: center;
+}
+
+.screen.active {
+  display: block;
+}
+
+#main-screen h1 {
+    color: white;
+    margin-bottom: 30px;
+    font-size: 3.5rem;
+}
+
+#start-btn {
+  background: #0099ff;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  padding: 1rem 2rem;
+  border: 4px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  cursor: pointer;
+}
+
+#start-btn:hover {
+    background: #0066cc;
+    box-shadow: 6px 6px 0 #000;
+}
+
+.plane {
+    position: absolute;
+    top: 20%;
+    left: -150px; 
+    width: 120px;
+    height: 80px;
+    background: url("images/airplane.png") no-repeat center/contain; 
+    animation: fly 5s linear infinite;
+}
+
+@keyframes fly {
+    0% {
+        left: -150px; 
+    }
+    100% {
+        left: 100%; 
+    }
+}
+
+.quiz-header {
+  margin-bottom: 2rem;
+}
+
+#question-text {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.quiz-info {
+  display: flex;
+  justify-content: space-between;
+  color: #ddd;
+  margin-bottom: 10px;
+  width: 800px;
+  margin: 0 auto;
+}
+
+#time {
+  display: inline-block;
+  min-width: 2ch;
+  text-align: center;
+}
+
+.answers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.answer-btn {
+  background-color: white;
+  color: #333;
+  border: 3px solid #0099ff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 600px;           
+  height: 70px;        
+  display: flex;
+  align-items: center;   
+  justify-content: center; 
+  margin: 0 auto;
+}
+
+.answer-btn:hover {
+  background-color: #99ccff;
+  border-color: #3399ff;
+}
+
+.answer-btn.correct {
+  background-color: #e6fff0;
+  border-color: #a3f0c4;
+  color: #28a745;
+}
+
+.answer-btn.incorrect {
+  background-color: #fff0f0;
+  border-color: #ffbdbd;
+  color: #dc3545;
+}
+
+.progress-bar {
+  height: 10px;
+  width: 1000px;
+  background-color: #ebf0ff;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.progress {
+  height: 100%;
+  background-color: #0099ff;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+@media (max-width: 500px) {
+  /* when we hit 500px and below, implement the styles below */
+
+  .screen {
+    padding: 1rem;
+  }
+
+  #main-screen h1 {
+    font-size: 2rem;
+  }
+
+  #question-text {
+    font-size: 1.3rem;
+  }
+
+  .answer-btn {
+    padding: 12px;
+  }
+
+  button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
