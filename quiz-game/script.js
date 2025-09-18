@@ -8,96 +8,99 @@ const totalQuestionsSpan = document.getElementById("total-questions");
 const scoreSpan = document.getElementById("score");
 const timeSpan = document.getElementById("time-remaining");
 const progressBar = document.getElementById("progress");
+const resultScreen = document.getElementById("result-screen");
+const resultText = document.getElementById("result-text");
+const restartButton = document.getElementById("restart-btn");
 
 const quizQuestions = [
   {
-    question: "What is the capital of France?",
+    question: "What is the full name of UEL?",
     answers: [
-      { text: "London", correct: false },
-      { text: "Berlin", correct: false },
-      { text: "Paris", correct: true },
-      { text: "Madrid", correct: false },
+      { text: "University of Economics - Law", correct: false },
+      { text: "University of Economics & Law, Vietnam National University, Ho Chi Minh City", correct: false },
+      { text: "University of Economics - Law, Vietnam National University, Ho Chi Minh City", correct: true },
+      { text: "University of Economics Law, Vietnam National University, Ho Chi Minh City", correct: false },
     ],
   },
   {
-    question: "Which planet is known as the Red Planet?",
+    question: "In which year was UEL established?",
     answers: [
-      { text: "Venus", correct: false },
-      { text: "Mars", correct: true },
-      { text: "Jupiter", correct: false },
-      { text: "Saturn", correct: false },
+      { text: "2009", correct: false },
+      { text: "2010", correct: true },
+      { text: "2011", correct: false },
+      { text: "2008", correct: false },
     ],
   },
   {
-    question: "What is the largest ocean on Earth?",
+    question: "Who is the current rector of UEL?",
     answers: [
-      { text: "Atlantic Ocean", correct: false },
-      { text: "Indian Ocean", correct: false },
-      { text: "Arctic Ocean", correct: false },
-      { text: "Pacific Ocean", correct: true },
+      { text: "Assoc. Prof. Dr. Nguyễn Tiến Dũng", correct: false },
+      { text: "Assoc. Prof. Dr. Nguyễn Văn Luân", correct: false },
+      { text: "Assoc. Prof. Dr. Hoàng Công Gia Khánh", correct: true },
+      { text: "None of the above", correct: false },
     ],
   },
   {
-    question: "Which of these is NOT a programming language?",
+    question: "What is the official Wi-Fi password for UEL students?",
     answers: [
-      { text: "Java", correct: false },
-      { text: "Python", correct: false },
-      { text: "Banana", correct: true },
-      { text: "JavaScript", correct: false },
+      { text: "uelwifi123", correct: false },
+      { text: "studentuel", correct: false },
+      { text: "maiyeuuel", correct: true },
+      { text: "welcomeuel", correct: false },
     ],
   },
   {
-    question: "What is the chemical symbol for gold?",
+    question: "On which date is the UEL’s Day student festival held every year?",
     answers: [
-      { text: "Go", correct: false },
-      { text: "Gd", correct: false },
-      { text: "Au", correct: true },
-      { text: "Ag", correct: false },
+      { text: "November 5", correct: false },
+      { text: "June 11", correct: false },
+      { text: "November 6", correct: true },
+      { text: "May 11", correct: false },
     ],
   },
   {
-    question: "What is the capital of France?",
+    question: "What is the traditional song of UEL students?",
     answers: [
-      { text: "London", correct: false },
-      { text: "Berlin", correct: false },
-      { text: "Paris", correct: true },
-      { text: "Madrid", correct: false },
+      { text: "I am a UEL student", correct: false },
+      { text: "Forward, UEL students", correct: false },
+      { text: "Steady Steps, UEL Students", correct: true },
+      { text: "UEL Student Anthem", correct: false },
     ],
   },
   {
-    question: "Which planet is known as the Red Planet?",
+    question: "What was the predecessor of UEL?",
     answers: [
-      { text: "Venus", correct: false },
-      { text: "Mars", correct: true },
-      { text: "Jupiter", correct: false },
-      { text: "Saturn", correct: false },
+      { text: "Faculty of Law under Vietnam National University, Ho Chi Minh City", correct: false },
+      { text: "Faculty of Economics under Vietnam National University, Ho Chi Minh City", correct: true },
+      { text: "Faculty of Economic Law under Vietnam National University, Ho Chi Minh City", correct: false },
+      { text: "Faculty of Information Systems under Vietnam National University, Ho Chi Minh City", correct: false },
     ],
   },
   {
-    question: "What is the largest ocean on Earth?",
+    question: "According to the current organizational structure of UEL, how many faculties are directly under the university?",
     answers: [
-      { text: "Atlantic Ocean", correct: false },
-      { text: "Indian Ocean", correct: false },
-      { text: "Arctic Ocean", correct: false },
-      { text: "Pacific Ocean", correct: true },
+      { text: "8", correct: false },
+      { text: "7", correct: false },
+      { text: "10", correct: false },
+      { text: "9", correct: true },
     ],
   },
   {
-    question: "Which of these is NOT a programming language?",
+    question: "Currently, according to the organizational structure of the university, which unit has an incorrect name?",
     answers: [
-      { text: "Java", correct: false },
-      { text: "Python", correct: false },
-      { text: "Banana", correct: true },
-      { text: "JavaScript", correct: false },
+      { text: "Administrative Office", correct: false },
+      { text: "Finance Office", correct: false },
+      { text: "Testing and Quality Assurance Office", correct: true },
+      { text: "Communications Office", correct: false },
     ],
   },
   {
-    question: "What is the chemical symbol for gold?",
+    question: "In which case would a student not be eligible for graduation at UEL?",
     answers: [
-      { text: "Go", correct: false },
-      { text: "Gd", correct: false },
-      { text: "Au", correct: true },
-      { text: "Ag", correct: false },
+      { text: "Has not participated in the Summer Volunteer Program", correct: false },
+      { text: "Has not obtained the Office Informatics certificate", correct: false },
+      { text: "Has not obtained the National Defense Education certificate", correct: true },
+      { text: "Has not participated in student scientific research activities", correct: false },
     ],
   },
 ];
@@ -111,6 +114,7 @@ let answersDisabled = false;
 totalQuestionsSpan.textContent = quizQuestions.length;
 
 startButton.addEventListener("click", startQuiz);
+restartButton.addEventListener("click", restartQuiz);
 
 function startQuiz() {
   currentQuestionIndex = 0;
@@ -217,4 +221,22 @@ function handleTimeOut() {
       showResults();
     }
   }, 1000);
+}
+
+function showResults() {
+  quizScreen.classList.remove("active");
+  resultScreen.classList.add("active");
+  const passingScore = 5;
+
+  if (score >= passingScore) {
+    resultText.textContent = "WELCOME TO UEL!";
+  } else {
+    resultText.textContent = "GAME OVER";
+  }
+}
+
+function restartQuiz() {
+  resultScreen.classList.remove("active");
+
+  startQuiz();
 }
