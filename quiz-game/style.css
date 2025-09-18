@@ -17,7 +17,7 @@ body {
 
 .screen {
     display: none;
-    padding: 2rem;
+    padding: clamp(0.5rem, 2vw, 2rem);
     text-align: center;
 }
 
@@ -27,18 +27,19 @@ body {
 
 #main-screen h1 {
     color: white;
-    margin-bottom: 30px;
-    font-size: 3.5rem;
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+    font-size: clamp(1.6rem, 5vw, 3.5rem);
 }
 
 #start-btn {
   background: #0099ff;
   color: white;
   font-family: 'Press Start 2P', cursive;
-  padding: 1rem 2rem;
+  padding: clamp(0.5rem, 1vw, 1rem) clamp(1rem, 2vw, 2rem);
   border: 4px solid #000;
   box-shadow: 4px 4px 0 #000;
   cursor: pointer;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
 }
 
 #start-btn:hover {
@@ -50,8 +51,8 @@ body {
     position: absolute;
     top: 20%;
     left: -150px; 
-    width: 120px;
-    height: 80px;
+    width: clamp(80px, 15vw, 120px);
+    height: clamp(50px, 10vw, 80px);
     background: url("images/airplane.png") no-repeat center/contain; 
     animation: fly 5s linear infinite;
 }
@@ -66,13 +67,13 @@ body {
 }
 
 .quiz-header {
-  margin-bottom: 2rem;
+  margin-bottom: clamp(1rem, 2vw, 2rem);
 }
 
 #question-text {
   color: white;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
   line-height: 1.4;
 }
 
@@ -94,8 +95,8 @@ body {
 .answers-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 25px;
+  gap: clamp(0.3rem, 1vw, 1rem);
+  margin-bottom: clamp(1rem, 2vw, 2rem);
 }
 
 .answer-btn {
@@ -106,11 +107,12 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   width: 600px;           
-  height: 70px;        
+  height: clamp(50px, 8vw, 70px);  
   display: flex;
   align-items: center;   
   justify-content: center; 
   margin: 0 auto;
+  font-size: clamp(0.85rem, 2.5vw, 1.1rem);
 }
 
 .answer-btn:hover {
@@ -131,12 +133,12 @@ body {
 }
 
 .progress-bar {
-  height: 10px;
+  height: clamp(8px, 1.5vw, 10px);
   width: 1000px;
   background-color: #ebf0ff;
   border-radius: 5px;
   overflow: hidden;
-  margin: 0 auto;
+  margin: clamp(1rem, 2vw, 2rem) auto 0;
   margin-top: 2rem;
 }
 
@@ -145,29 +147,4 @@ body {
   background-color: #0099ff;
   width: 0%;
   transition: width 0.3s ease;
-}
-
-@media (max-width: 500px) {
-  /* when we hit 500px and below, implement the styles below */
-
-  .screen {
-    padding: 1rem;
-  }
-
-  #main-screen h1 {
-    font-size: 2rem;
-  }
-
-  #question-text {
-    font-size: 1.3rem;
-  }
-
-  .answer-btn {
-    padding: 12px;
-  }
-
-  button {
-    padding: 12px 25px;
-    font-size: 1rem;
-  }
 }
